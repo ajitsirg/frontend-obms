@@ -50,12 +50,7 @@ const BookingInfo = () => {
   console.log(name, contact_no, email_id);
 
   const options = ['Taj', 'Hawa', 'jm', 'pm', 'lorem'];
-  const optionsFor = [
-    'Indian Citizen',
-    'Indian Student',
-    'Foreigner Student',
-    'Foreigner Citizen',
-  ];
+  const optionsFor = ['Hawa Mahal'];
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     const data = new FormData();
@@ -114,18 +109,18 @@ const BookingInfo = () => {
                       nodal department:
                     </p>
                     <FormControl className=''>
-                      {Object.keys(place).length > 0 && (
-                        <Select
-                          disabled
-                          value={place?.nodalDepartment}
-                          inputProps={{ 'aria-label': 'Without label' }}
-                          className='w-96 shadow-md h-12 bg-white'
-                        >
-                          {options?.map((el) => (
-                            <MenuItem value={el}>{el}</MenuItem>
-                          ))}
-                        </Select>
-                      )}
+                      {/* {Object.keys(place).length > 0 && ( */}
+                      <Select
+                        disabled
+                        value={place?.nodalDepartment}
+                        inputProps={{ 'aria-label': 'Without label' }}
+                        className='w-96 shadow-md h-12 bg-white'
+                      >
+                        {options?.map((el) => (
+                          <MenuItem value={el}>{el}</MenuItem>
+                        ))}
+                      </Select>
+                      {/* )} */}
                     </FormControl>
                   </div>
                   <div>
@@ -133,77 +128,80 @@ const BookingInfo = () => {
                       tourist place type:
                     </p>
                     <FormControl className=''>
-                      {Object.keys(place).length > 0 && (
-                        <Select
-                          disabled
-                          value={place?.touristPlaceType}
-                          inputProps={{ 'aria-label': 'Without label' }}
-                          className='w-96 shadow-md  h-12 bg-white !text-gray-400'
-                        >
-                          {options?.map((el) => (
-                            <MenuItem value={el}>{el}</MenuItem>
-                          ))}
-                        </Select>
-                      )}
+                      {/* {Object.keys(place).length > 0 && ( */}
+                      <Select
+                        disabled
+                        value={place?.touristPlaceType}
+                        inputProps={{ 'aria-label': 'Without label' }}
+                        className='w-96 shadow-md  h-12 bg-white !text-gray-400'
+                      >
+                        {options?.map((el) => (
+                          <MenuItem value={el}>{el}</MenuItem>
+                        ))}
+                      </Select>
+                      {/* )} */}
                     </FormControl>
                   </div>
                 </div>
               </div>
 
               {/* ------ second group ------- */}
-              <div className='flex flex-row flex-wrap items-center gap-[30px]'>
+              <div className='flex flex-row flex-wrap items-center gap-[10px]'>
                 <div>
                   <p className='text-gray-400 text-2xl font-semibold mb-3 capitalize'>
                     City:
                   </p>
                   <FormControl className=''>
-                    {Object.keys(place).length > 0 && (
-                      <Select
-                        disabled
-                        value={place?.city}
-                        inputProps={{ 'aria-label': 'Without label' }}
-                        className='w-96 shadow-md h-12 bg-white !text-gray-400'
-                      >
-                        {options?.map((el) => (
-                          <MenuItem value={el}>{el}</MenuItem>
-                        ))}
-                      </Select>
-                    )}
+                    {/* {Object.keys(place).length > 0 && ( */}
+                    <Select
+                      disabled
+                      value={place?.city}
+                      inputProps={{ 'aria-label': 'Without label' }}
+                      className='w-96 shadow-md h-12 bg-white !text-gray-400'
+                    >
+                      {options?.map((el) => (
+                        <MenuItem value={el}>{el}</MenuItem>
+                      ))}
+                    </Select>
+                    {/* )} */}
                   </FormControl>
                 </div>
                 <div>
                   <p className='text-gray-400 text-2xl font-semibold mb-3 capitalize'>
                     place name:
                   </p>
-                  {Object.keys(place).length > 0 && (
-                    <input
-                      disabled
-                      className='focus:outline-none p-3 bg-white h-12 rounded overflow-hidden border border-gray-400/70 shadow-md w-96'
-                      type='text'
-                      value={place?.placeName}
-                      placeholder='Hawa Mahal'
-                    />
-                  )}
+                  {/* {Object.keys(place).length > 0 && ( */}
+                  <input
+                    disabled
+                    className='focus:outline-none p-3 bg-white h-12 rounded overflow-hidden border border-gray-400/70 shadow-md w-96'
+                    type='text'
+                    value={place?.placeName}
+                    placeholder='Hawa Mahal'
+                  />
+                  {/* )} */}
                 </div>
                 <div>
                   <p className='text-gray-400 text-2xl font-semibold mb-3 capitalize'>
                     GIS Locations
                   </p>
-                  {place?.place_coordinate_latitude &&
-                    place?.place_coordinate_longitude && (
-                      <div>
-                        <p className='text-[#00000099] text-2xl font-semibold mb-3 capitalize'>
-                          GIS location:
-                        </p>
-                        <input
-                          placeholder='26.9239° N, 75.8267° E'
-                          className='focus:outline-none p-3 h-12 rounded overflow-hidden border border-gray-400/70 shadow-md w-96'
-                          type='text'
-                          value={`${place?.place_coordinate_latitude},${place?.place_coordinate_longitude} `}
-                          disabled
-                        />
-                      </div>
-                    )}
+                  {/* {place?.place_coordinate_latitude &&
+                    place?.place_coordinate_longitude && ( */}
+                  {/* <div> */}
+                  {/* <p className='text-[#00000099] text-2xl font-semibold mb-3 capitalize'>
+                    GIS location:
+                  </p> */}
+                  <input
+                    placeholder='26.9239° N, 75.8267° E'
+                    className='focus:outline-none p-3 h-12 rounded overflow-hidden border border-gray-400/70 shadow-md w-96'
+                    type='text'
+                    value={
+                      place?.place_coordinate_latitude &&
+                      `${place?.place_coordinate_latitude},${place?.place_coordinate_longitude} `
+                    }
+                    disabled
+                  />
+                  {/* </div> */}
+                  {/* )} */}
                 </div>
               </div>
               {/* -------- third group -------  */}
@@ -227,7 +225,7 @@ const BookingInfo = () => {
                   <p className='text-gray-400 text-2xl font-semibold mb-3 capitalize'>
                     site image:
                   </p>
-                  <div className='flex items-center gap-[24px] focus:outline-none   w-96'>
+                  <div className='flex items-center gap-[24px] focus:outline-none w-72'>
                     <label
                       className='w-full cursor-pointer'
                       htmlFor='siteImage'
@@ -254,7 +252,7 @@ const BookingInfo = () => {
                   <p className='text-gray-400 text-2xl font-semibold mb-3 capitalize'>
                     image for ticket:
                   </p>
-                  <div className='flex items-center gap-[24px] focus:outline-none   w-96'>
+                  <div className='flex items-center gap-[24px] focus:outline-none  w-72'>
                     <label
                       className='w-full cursor-pointer'
                       htmlFor='siteImage'
@@ -295,7 +293,7 @@ const BookingInfo = () => {
                 />
               </div>
               {/* ----- fourth group ------ */}
-              <div className='flex flex-row flex-wrap items-center gap-[30px]'>
+              <div className='flex flex-row flex-wrap items-center gap-[10px]'>
                 {/* ------ Name: ----- */}
 
                 <div>
@@ -345,7 +343,7 @@ const BookingInfo = () => {
               </div>
 
               {/* ------- fifth group ------- */}
-              <div className='flex flex-row flex-wrap items-center gap-[30px]'>
+              <div className='flex flex-row flex-wrap items-center gap-[10px]'>
                 <div>
                   <p className='text-[#00000099] text-2xl font-semibold mb-3 capitalize'>
                     booking for:
@@ -402,7 +400,7 @@ const BookingInfo = () => {
                       onChange={(e) => sethelp_desk_no(e.target.value)}
                       placeholder='123-456-7890'
                       className='focus:outline-none h-12 rounded p-3 overflow-hidden border border-gray-400/70 shadow-md w-full'
-                      type='number'
+                      // type='number'
                     />
                   </div>
                   {/* <button className='bg-[#3C5071] h-11 px-5 text-white rounded-[6px] shadow-[0_4px_4px_rgba(0,0,0,0.3)] uppercase font-[600]'>
@@ -439,7 +437,7 @@ const BookingInfo = () => {
                     {/* ----- Winter Session ------- */}
                     <div className=' '>
                       <h3 className='text-[20px] font-[600]'>Winter Session</h3>
-                      <div className='flex items-center w-96 gap-0.5 '>
+                      <div className='flex items-center w-80 gap-0.5 '>
                         {/* ------- start time ------ */}
                         <div className='w-full'>
                           <p className='text-[14px]'>Start Time</p>
@@ -475,7 +473,7 @@ const BookingInfo = () => {
                     {/* ----- Summer Session ------- */}
                     <div className=''>
                       <h3 className='text-[20px] font-[600]'>Summer Session</h3>
-                      <div className='flex items-center w-96 gap-0.5 '>
+                      <div className='flex items-center w-80 gap-0.5'>
                         {/* ------- start time ------ */}
                         <div className='w-full'>
                           <p className='text-[14px]'>Start Time</p>
@@ -523,13 +521,13 @@ const BookingInfo = () => {
                             type='date'
                           />
                         </div> */}
-                        <div className='grid grid-cols-2 gap-x-2'>
-                          <div className='w-full flex items-start justify-center flex-col'>
+                        <div className='grid grid-cols-3 gap-x-2'>
+                          <div className='w-full flex items-start justify-center flex-col col-span-1'>
                             {dateInputsnum?.map(() => {
                               return (
                                 <Calendar
-                                  className='rounded-lg w-32'
-                                  id='date'
+                                  className='rounded-lg w-[150px] h-[54px]'
+                                  id='picker2'
                                   name='date'
                                   onChange={(e) => setholiday_session(e.value)}
                                   value={holiday_session}
@@ -562,24 +560,27 @@ const BookingInfo = () => {
                           >
                             Add
                           </button>
+                          <div className='flex gap-4 xl:-ml-4  mb-0.5'>
+                            <button className='bg-[#3C5071] w-[145px] h-[54px] px-5 text-white rounded-[6px] shadow-[0_4px_4px_rgba(0,0,0,0.3)] uppercase font-[600]'>
+                              Back
+                            </button>
+                            <button
+                              className='bg-[#3C5071] w-[145px] h-[54px] px-5 text-white rounded-[6px] shadow-[0_4px_4px_rgba(0,0,0,0.3)] uppercase font-[600]'
+                              onClick={() => navigate('/')}
+                            >
+                              Cancel
+                            </button>
+                            <button
+                              onClick={handleSubmit}
+                              className='bg-[#3C5071] w-[145px] h-[54px] px-[10px] text-white rounded-[6px] shadow-[0_4px_4px_rgba(0,0,0,0.3)] uppercase font-[600]'
+                            >
+                              Submit
+                            </button>
+                          </div>
                         </div>
+                        {/* -------- button side --------- */}
                       </div>
                     </div>
-                  </div>
-                  {/* -------- button side --------- */}
-                  <div className='flex gap-4 xl:-ml-4  mb-0.5'>
-                    <button className='bg-[#3C5071] px-5 text-white rounded-[6px] shadow-[0_4px_4px_rgba(0,0,0,0.3)] uppercase font-[600]'>
-                      Back
-                    </button>
-                    <button className='bg-[#3C5071] px-5 text-white rounded-[6px] shadow-[0_4px_4px_rgba(0,0,0,0.3)] uppercase font-[600]'>
-                      Cancel
-                    </button>
-                    <button
-                      onClick={handleSubmit}
-                      className='bg-[#3C5071] px-[10px] h-11 text-white rounded-[6px] shadow-[0_4px_4px_rgba(0,0,0,0.3)] uppercase font-[600]'
-                    >
-                      Submit
-                    </button>
                   </div>
                 </div>
               </div>

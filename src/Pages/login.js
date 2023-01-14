@@ -34,7 +34,7 @@ const Login = () => {
         <div className='w-2/5 mx-auto pt-10 pb-40 px-6 h-full'>
           <div className='w-full flex items-center justify-center flex-col'>
             <div className='mb-6'>
-              <p className='text-[#2E2D2D] text-[15px] font-semibold mb-3'>
+              <p className='text-[#2E2D2D] text-[15px] font-semibold mb-3 font-inter'>
                 SSO Id:
               </p>
               <input
@@ -43,7 +43,7 @@ const Login = () => {
                 value={formik.values.ssoId}
                 onChange={formik.handleChange}
                 placeholder='SSO Id'
-                className='focus:outline-none rounded-[5px] px-2 overflow-hidden border border-gray-400/70 shadow-md w-[378px] h-[40px]'
+                className='focus:outline-none rounded-[5px] px-2 overflow-hidden border border-gray-400/70 shadow-md w-[390px] h-[40px]'
                 type='text'
               />
               {formik.touched.ssoId && Boolean(formik.errors.ssoId) && (
@@ -61,7 +61,7 @@ const Login = () => {
                 value={formik.values.password}
                 onChange={formik.handleChange}
                 placeholder='Password'
-                className='focus:outline-none rounded-[5px] px-2 overflow-hidden border border-gray-400/70 shadow-md w-[378px] h-[40px]'
+                className='focus:outline-none rounded-[5px] px-2 overflow-hidden border border-gray-400/70 shadow-md w-[390px] h-[40px]'
                 type='text'
               />
               {formik.touched.password && Boolean(formik.errors.password) && (

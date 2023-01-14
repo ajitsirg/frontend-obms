@@ -8,7 +8,7 @@ import SecondGroup from '../Components/View Mapped/SecondGroup';
 import TableSection from '../Components/View Mapped/TableSection';
 import ThirdGroup from '../Components/View Mapped/ThirdGroup';
 import axios from 'axios';
-import { FormControl, MenuItem, Select } from '@mui/material';
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
@@ -103,6 +103,7 @@ const ViewMapped = () => {
       setTicketImageIUrl(URL.createObjectURL(siteforticket));
     }
   }, [siteforticket]);
+
   return (
     <div className='min-h-screen bg-[#F0EBEB] '>
       <SecondNav onTextFieldChange={onTextFieldChange} />
@@ -116,12 +117,14 @@ const ViewMapped = () => {
                 nodal department:
               </p>
               <FormControl className='' name='nodel_department'>
+                <InputLabel id='nodel-label'>Select Here</InputLabel>
                 <Select
                   onChange={(e) => setnodel_department(e.target.value)}
                   value={nodel_department}
-                  displayEmpty
-                  inputProps={{ 'aria-label': 'Without label' }}
+                  labelId='nodel-label'
+                  // inputProps={{ 'aria-label': 'Without label' }}
                   className='w-96 shadow-md h-12 bg-white !text-gray-400'
+                  label='Select Here'
                 >
                   {options?.map((el) => (
                     <MenuItem value={el}>{el}</MenuItem>
@@ -134,13 +137,14 @@ const ViewMapped = () => {
                 tourist place type:
               </p>
               <FormControl className='' name='tourist_place_type'>
+                <InputLabel id='tourist-label'>Select Here</InputLabel>
                 <Select
                   onChange={(e) => settourist_place_type(e.target.value)}
                   value={tourist_place_type}
-                  displayEmpty
-                  inputProps={{ 'aria-label': 'Without label' }}
+                  // inputProps={{ 'aria-label': 'Without label' }}
                   className='w-96 shadow-md h-12 bg-white !text-gray-400'
-                  placeholder='Select'
+                  label='Select Here'
+                  labelId='tourist-label'
                 >
                   {options?.map((el) => (
                     <MenuItem value={el}>{el}</MenuItem>
@@ -157,13 +161,15 @@ const ViewMapped = () => {
               City:
             </p>
             <FormControl className=''>
+              <InputLabel id='city-label'>Select Here</InputLabel>
               <Select
                 onChange={(e) => setcity(e.target.value)}
                 name='city'
                 value={city}
-                displayEmpty
-                inputProps={{ 'aria-label': 'Without label' }}
+                labelId='city-label'
+                // inputProps={{ 'aria-label': 'Without label' }}
                 className='w-96 shadow-md h-12 bg-white !text-gray-400'
+                label='Select Here'
               >
                 {options?.map((el) => (
                   <MenuItem value={el}>{el}</MenuItem>
@@ -176,12 +182,14 @@ const ViewMapped = () => {
               place name:
             </p>
             <FormControl className=''>
+              <InputLabel id='place-label'>Select Here</InputLabel>
               <Select
                 onChange={(e) => setplace_name(e.target.value)}
                 value={place_name}
-                displayEmpty
-                inputProps={{ 'aria-label': 'Without label' }}
+                // inputProps={{ 'aria-label': 'Without label' }}
                 className='w-96 shadow-md h-12 bg-white !text-gray-400'
+                label='Select Here'
+                labelId='place-label'
               >
                 {options?.map((el) => (
                   <MenuItem value={el}>{el}</MenuItem>
@@ -233,7 +241,7 @@ const ViewMapped = () => {
             <p className='text-[#00000099] text-2xl font-semibold mb-3 capitalize'>
               site image:
             </p>
-            <div className='flex items-center gap-[10px] focus:outline-none   w-96'>
+            <div className='flex items-center gap-[10px] focus:outline-none w-72'>
               <label className='w-full cursor-pointer' htmlFor='siteImage'>
                 <p className='text-[14px] text-[#00000080] font-[500] bg-white flex items-center justify-center gap-[6px] h-12 rounded overflow-hidden border border-gray-400/70 shadow-md '>
                   <span>
@@ -251,6 +259,7 @@ const ViewMapped = () => {
                   name='site_image'
                   id='siteImage'
                 />
+                {site_image.name}
               </label>
               <button
                 onClick={handleOpen}
@@ -283,7 +292,7 @@ const ViewMapped = () => {
             <p className='text-[#00000099] text-2xl font-semibold mb-3 capitalize'>
               image for ticket:
             </p>
-            <div className='flex items-center gap-[10px] focus:outline-none   w-96'>
+            <div className='flex items-center gap-[10px] focus:outline-none w-72'>
               <label className='w-full cursor-pointer' htmlFor='siteforticket'>
                 <p className='text-[14px] text-[#00000080] font-[500] bg-white flex items-center justify-center gap-[6px] h-12 rounded overflow-hidden border border-gray-400/70 shadow-md '>
                   <span>
@@ -301,6 +310,7 @@ const ViewMapped = () => {
                   name='siteforticket'
                   id='siteforticket'
                 />
+                {siteforticket.name}
               </label>
               <button
                 onClick={handleOpen2}
@@ -327,7 +337,7 @@ const ViewMapped = () => {
           {/* -------- submit button ------ */}
           <button
             onClick={handleSubmit}
-            className='w-[153px] bg-[#3C5071] text-white py-2.5 mb-0.5 rounded'
+            className='w-[175px] bg-[#3C5071] text-white py-2.5 mb-0.5 rounded'
           >
             Submit
           </button>

@@ -9,7 +9,8 @@ const VisitorType = ({ ticketFormik }) => {
         <Checkbox
           color='default'
           name='indianCitizen'
-          id='indianCitizen'
+          id='checkbox'
+          className='bg-white'
           checked={ticketFormik.values.indianCitizen}
           onChange={() => {
             ticketFormik.setFieldValue(
@@ -20,7 +21,10 @@ const VisitorType = ({ ticketFormik }) => {
             ticketFormik.setFieldValue('indianCitizenPaidAmount', 0);
           }}
         />
-        <label className='text-lg text-[#30303099]' htmlFor='indianCitizen'>
+        <label
+          className='text-lg text-[#504E4E] font-normal'
+          htmlFor='indianCitizen'
+        >
           Indian Citizen
         </label>
       </div>
@@ -40,7 +44,10 @@ const VisitorType = ({ ticketFormik }) => {
             ticketFormik.setFieldValue('foreignCitizenPaidAmount', 0);
           }}
         />
-        <label className='text-lg text-[#30303099]' htmlFor='foreignerCitizen'>
+        <label
+          className='text-lg text-[#504E4E] font-normal'
+          htmlFor='foreignerCitizen'
+        >
           Foreigner Citizen
         </label>
       </div>
@@ -60,7 +67,10 @@ const VisitorType = ({ ticketFormik }) => {
             ticketFormik.setFieldValue('indianStudentPaidAmount', 0);
           }}
         />
-        <label className='text-lg text-[#30303099]' htmlFor='indianStudent'>
+        <label
+          className='text-lg text-[#504E4E] font-normal'
+          htmlFor='indianStudent'
+        >
           Indian Student
         </label>
       </div>
@@ -80,7 +90,10 @@ const VisitorType = ({ ticketFormik }) => {
             ticketFormik.setFieldValue('foreignStudentPaidAmount', 0);
           }}
         />
-        <label className='text-lg text-[#30303099]' htmlFor='foreignerStudent'>
+        <label
+          className='text-lg text-[#504E4E] font-normal'
+          htmlFor='foreignerStudent'
+        >
           Foreigner Student
         </label>
       </div>

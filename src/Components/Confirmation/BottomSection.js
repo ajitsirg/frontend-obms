@@ -6,11 +6,11 @@ import { ButtonMd } from '../Shared/Constant';
 const BottomSection = ({ ticketFormik, postTicket }) => {
   const navigate = useNavigate();
   let total =
-    ticketFormik.values.indianCitizenPaidAmount +
-    ticketFormik.values.foreignCitizenPaidAmount +
-    ticketFormik.values.indianStudentPaidAmount +
-    ticketFormik.values.foreignStudentPaidAmount;
-  let gst = total - (total * 18) / 100;
+    ticketFormik.values.indianCitizenNo * 50 +
+    ticketFormik.values.foreignCitizenNo * 200 +
+    ticketFormik.values.indianStudentNo * 20 +
+    ticketFormik.values.foreignStudentNo * 100;
+  let gst = (total * 18) / 100;
   return (
     <div className='mt-20'>
       <div className='text-lg tracking-wide text-gray-900 font-semibold max-w-sm'>
@@ -72,7 +72,7 @@ const BottomSection = ({ ticketFormik, postTicket }) => {
             type='button'
           />
 
-          <span onClick={() => navigate('/booking-ticket')}>
+          <span onClick={() => navigate('/')}>
             <ButtonMd text={'CANCEL'} />
           </span>
         </div>

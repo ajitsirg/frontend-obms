@@ -29,23 +29,22 @@ const ConfirmationSlip = ({ ticket, print }) => {
             1. The Visitor Or His/Her Representative Must Reach To The Forest
             Permit Booking Counter To Collect The Boarding Pass, At Least 45
             Minutes Prior To The Entry Time.
-          </li>{' '}
+          </li>
           <br />
           <li>
-            {' '}
             2. The Id Proof Of Visitor Produced At The Time Of Collecting
             Boarding Pass Should Be The Id Used While Booking Online Permit,
             Failing Which, The Permit Will Be Deemed Fake And Liable To Be
             Cancelled. The Visitor Must Also Carry Copy Of Such Id While
             Visiting The Park.
-          </li>{' '}
-          <br />{' '}
+          </li>
+          <br />
           <li>
             3. The Charges Deposited During Online Booking Include Tourist Entry
             Fee, Tiger Reserve Development Fund, Vehicle Entry Fee, Vehicle
             Rent, Guide Fees And Online Booking Charges And Applicable Taxes.
           </li>
-          <br />{' '}
+          <br />
           <li>
             4. The Visitor Must Bring Two Copies of Confirmation Slip At The
             Time Of Collecting Boarding Pass. One Copy Will Be Deposited In The
@@ -53,21 +52,20 @@ const ConfirmationSlip = ({ ticket, print }) => {
           </li>
           <br />
           <li>
-            {' '}
             5. Seats Remaining Vacant Due To Non-Turn Up Of Any Visitors Would
-            Be Filled By The Park Management At The Booking Window.{' '}
+            Be Filled By The Park Management At The Booking Window.
           </li>
-          <br />{' '}
+          <br />
           <li>
-            <br /> 6. The Time To Receive The Boarding Pass Will Start Two Hours
-            Before The Park Entry Time.
+            6. The Time To Receive The Boarding Pass Will Start Two Hours Before
+            The Park Entry Time.
           </li>
-          <br />{' '}
+          <br />
           <li>
             7. Allotment of Vehicle For Safari Will Be Done At Least One And
             Half Hour Prior To The Entry Time Of Visitors In The Park For
             Safari.
-          </li>{' '}
+          </li>
           <br />
           <li>
             8. In Case of Group Booking, Park Authorities Will Try To Adjust The
@@ -77,7 +75,7 @@ const ConfirmationSlip = ({ ticket, print }) => {
           <br />
           <li>
             9. Boarding Pass Will Be Issued At: Forest Permit Booking Office,
-            Shilogram, Village Ramsinghpura, Ranthambhore Road, Sawai Madhopur{' '}
+            Shilogram, Village Ramsinghpura, Ranthambhore Road, Sawai Madhopur
           </li>
           <br />
           <li>
@@ -90,7 +88,7 @@ const ConfirmationSlip = ({ ticket, print }) => {
             11. Choice Of Guide Is Available On Payment of Rs.500/- Extra Per
             Guide Per Safari.
           </li>
-          <br />{' '}
+          <br />
           <li>
             12. Visitors Have Option To Choose A Vehicle (Gypsy/Canter) Of Their
             Choice On Payment Of Rs. 2000/- Per Gypsy And Rs. 3000/- Per Canter
@@ -101,8 +99,8 @@ const ConfirmationSlip = ({ ticket, print }) => {
             C.25% Refund Of Booking Amount If Cancellation Is Made Before 90-180
             Days From The Date Of Visit. D.0% Refund Of Booking Amount if
             Cancellation Is Made With In 90 Days From The Date of Visit
-          </li>{' '}
-          <br />{' '}
+          </li>
+          <br />
           <li>
             13. In Case of Any Changes In Applicable Fees & Tax Rates, The
             Difference Amount Shall Be Collected At The Time Of Boarding/ Entry

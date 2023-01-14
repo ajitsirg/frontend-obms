@@ -26,6 +26,7 @@ const FifthGroup = () => {
             displayEmpty
             inputProps={{ 'aria-label': 'Without label' }}
             className='w-96 shadow-md  h-12 bg-white !text-gray-400'
+            disabled
           >
             {options?.map((el) => (
               <MenuItem value={el}>Counter Booking</MenuItem>
@@ -47,12 +48,13 @@ const FifthGroup = () => {
               type='file'
               name='siteImage'
               id='siteImage'
+              disabled
             />
           </label>
         </div>
       </div>
 
-      <div className='flex items-end justify-start gap-8 w-96 flex-row-reverse'>
+      <div className='flex items-end justify-start gap-8 w-56 flex-row-reverse'>
         <div className='w-full'>
           <p className='text-[#00000099] text-2xl font-semibold mb-3 capitalize'>
             help desk no:
@@ -61,6 +63,7 @@ const FifthGroup = () => {
             placeholder='123-456-7890'
             className='focus:outline-none h-12 rounded p-3 overflow-hidden border border-gray-400/70 shadow-md w-full'
             type='text'
+            disabled
           />
         </div>
         {/* <button className='bg-[#3C5071] h-11 px-5 text-white rounded-[6px] shadow-[0_4px_4px_rgba(0,0,0,0.3)] uppercase font-[600]'>

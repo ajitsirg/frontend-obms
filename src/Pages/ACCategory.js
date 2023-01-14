@@ -36,6 +36,7 @@ const ACCategory = () => {
       foreignStudent: '',
     },
   ]);
+  const [dateInputsnum, setDateInputNums] = useState([1]);
 
   const handleSubmit = (e) => {
     const data = {
@@ -81,52 +82,52 @@ const ACCategory = () => {
             A/C Details
           </h1>
           <div className='mt-[32px] w-full overflow-auto'>
-            {accounts?.map((account, index) => {
+            {dateInputsnum?.map(() => {
               return (
-                <div className='w-full overflow-auto'>
+                <div className='w-full overflow-auto my-2'>
                   {/* -------- 1st table -------- */}
                   <div>
                     {/* ------ heading row ------ */}
                     <div className='grid grid-cols-10 w-full text-center overflow-auto'>
                       {/* ------ data -------- */}
                       <div className='w-full h-[44px] border-r-[1px] border-gray-400'>
-                        <h1 className='bg-[#3C5071] text-center h-[100%] flex justify-center items-center text-white font-[500] truncate px-[3px]'>
+                        <h1 className='bg-[#3C5071] text-center h-[100%] flex justify-center items-center text-white font-[500] truncate px-[3px] text-[15px] rounded-tl-[5px] rounded-bl-[5px]'>
                           Type Of A/C
                         </h1>
                       </div>
                       {/* ------ data -------- */}
                       <div className='w-full h-[44px] border-r-[1px] border-gray-400'>
-                        <h1 className='bg-[#3C5071] text-center h-[100%] flex justify-center items-center text-white font-[500] truncate px-[3px]'>
+                        <h1 className='bg-[#3C5071] text-center h-[100%] flex justify-center items-center text-white font-[500] truncate px-[3px] text-[15px]'>
                           Name Of A/C
                         </h1>
                       </div>
                       {/* ------ data -------- */}
                       <div className='w-full h-[44px] border-r-[1px] border-gray-400'>
-                        <h1 className='bg-[#3C5071] text-center h-[100%] flex justify-center items-center text-white font-[500] truncate px-[3px]'>
+                        <h1 className='bg-[#3C5071] text-center h-[100%] flex justify-center items-center text-white font-[500] truncate px-[3px] text-[15px]'>
                           Bank Name:
                         </h1>
                       </div>
                       {/* ------ data -------- */}
                       <div className='w-full h-[44px] border-r-[1px] border-gray-400'>
-                        <h1 className='bg-[#3C5071] text-center h-[100%] flex justify-center items-center text-white font-[500] truncate px-[3px]'>
+                        <h1 className='bg-[#3C5071] text-center h-[100%] flex justify-center items-center text-white font-[500] truncate px-[3px] text-[15px]'>
                           A/C Number:
                         </h1>
                       </div>
                       {/* ------ data -------- */}
                       <div className='w-full h-[44px] border-r-[1px] border-gray-400'>
-                        <h1 className='bg-[#3C5071] text-center h-[100%] flex justify-center items-center text-white font-[500] truncate px-[3px]'>
+                        <h1 className='bg-[#3C5071] text-center h-[100%] flex justify-center items-center text-white font-[500] truncate px-[3px] text-[15px]'>
                           IFSC code:
                         </h1>
                       </div>
                       {/* ------ data -------- */}
                       <div className='w-full h-[44px] border-r-[1px] border-gray-400'>
-                        <h1 className='bg-[#3C5071] text-center h-[100%] flex justify-center items-center text-white font-[500] truncate px-[3px]'>
+                        <h1 className='bg-[#3C5071] text-center h-[100%] flex justify-center items-center text-white font-[500] truncate px-[3px] text-[15px]'>
                           Branch:
                         </h1>
                       </div>
                       {/* ------ data -------- */}
                       <div className='w-full h-[44px] col-span-3  border-gray-400'>
-                        <h1 className='bg-[#3C5071] text-center h-[50%] flex justify-center items-center text-white font-[500] truncate px-[3px]'>
+                        <h1 className='bg-[#3C5071] text-center h-[50%] flex justify-center items-center text-white font-[500] truncate px-[3px] text-[15px] rounded-tr-[5px]'>
                           Price Category:
                         </h1>
                         <div className='grid grid-cols-4 h-[50%] border-t-[1px] text-white'>
@@ -139,14 +140,14 @@ const ACCategory = () => {
                           <h6 className='pt-[1px] h-[100%] bg-[#3C5071] text-[10px] px-[2px] truncate border-r-[1px] border-gray-400'>
                             Indian student
                           </h6>
-                          <h6 className='pt-[1px] h-[100%] bg-[#3C5071] text-[10px] px-[2px] truncate '>
+                          <h6 className='pt-[1px] h-[100%] bg-[#3C5071] text-[10px] px-[2px] truncate rounded-br-[5px]'>
                             Foreigner student
                           </h6>
                         </div>
                       </div>
-                      <div className='w-full h-[44px] '>
+                      {/* <div className='w-full h-[44px] '>
                         <h1 className=' h-[100%] flex justify-center items-center text-white font-[500] truncate px-[3px]'></h1>
-                      </div>
+                      </div> */}
                     </div>
 
                     {/* -------- data row ------ */}
@@ -258,17 +259,32 @@ const ACCategory = () => {
                         </div>
                       </div>
                       {/* button div  */}
-                      <div className='flex justify-end items-center gap-[10px] ml-28'>
-                        <button onClick={handleSubmit} className=''>
-                          <span className='h-[32px] bg-[#3C5071] px-[8px] rounded-[6px] text-white font-[600] hidden xl:inline-flex items-center justify-center'>
+                      <div className='flex justify-end items-center gap-[10px] ml-24'>
+                        <button
+                          className=''
+                          onClick={() => {
+                            let arr = [...dateInputsnum];
+                            arr.push(Math.random());
+                            setDateInputNums(arr);
+                          }}
+                        >
+                          <span className='bg-[#3C5071] px-[5px] rounded-[6px] text-white font-[600] hidden xl:inline-flex text-sm items-center justify-center h-[43.99px]'>
                             Add
                           </span>
                           <span className='xl:hidden bg-[#3C5071] h-7 w-7 text-sm rounded inline-flex items-center justify-center text-white'>
                             +
                           </span>
                         </button>
-                        <button className=''>
-                          <span className='h-[32px] bg-[#3C5071] px-[8px] rounded-[6px] text-white font-[600] hidden xl:inline-flex items-center justify-center'>
+                        <button
+                          className=''
+                          onClick={() => {
+                            let arr = [...dateInputsnum];
+                            arr.pop(1);
+                            setDateInputNums(arr);
+                          }}
+                          disabled={dateInputsnum.length === 1}
+                        >
+                          <span className='bg-[#3C5071] px-[5px] rounded-[6px] text-white font-[600] hidden xl:inline-flex items-center justify-center text-sm h-[43.99px]'>
                             Remove
                           </span>
                           <span className='xl:hidden bg-[#3C5071] h-7 w-7 text-sm rounded inline-flex items-center justify-center text-white'>
@@ -286,16 +302,16 @@ const ACCategory = () => {
               <h3 className='text-[20px] font-[600] text-[#626262]'>
                 Grand Total:
               </h3>
-              <div className='grid grid-cols-4 w-[90vw] lg:w-[300px] h-[37px] bg-white rounded-[6px]'>
-                <div className='border-r-[1px]'></div>
-                <div className='border-r-[1px]'></div>
-                <div className='border-r-[1px]'></div>
+              <div className='grid grid-cols-4 w-[90vw] lg:w-[450px] bg-white rounded-[6px] shadow-lg border border-[#00000040] h-[40px]'>
+                <div className='border-r-[1px] border-[#00000040]'></div>
+                <div className='border-r-[1px] border-[#00000040]'></div>
+                <div className='border-r-[1px] border-[#00000040]'></div>
               </div>
             </div>
             {/* -------- bottom buttons -------- */}
             <div className='flex justify-end gap-[10px] mt-[208px] mr-[9.5rem]'>
               <ButtonMd text='Back' />
-              <ButtonMd text='Cancel' />
+              <ButtonMd text='Cancel' onClick={() => navigate(`/`)} />
               <span onClick={() => navigate(`/preview-details/2`)}>
                 <ButtonMd text='Submit' />
               </span>

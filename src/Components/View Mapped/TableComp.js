@@ -51,13 +51,13 @@ const TableComp = () => {
   return (
     <div className='w-full overflow-auto bg-white p-4 rounded-xl'>
       <TableContainer component={Paper} sx={{ backgroundColor: 'transparent' }}>
-        <Table aria-label='simple table' sx={{ borderRadius: '20px' }}>
+        <Table aria-label='simple table'>
           <TableHead>
             <TableRow sx={{ background: '#314668' }}>
               <TableCell
                 sx={{ fontSize: '16px', fontWeight: '700', color: 'white' }}
                 align='center'
-                className='border-r-[1px] border-gray-400'
+                className='border-r-[1px] border-gray-400 rounded-tl-[30px]'
               >
                 Nodel Department
               </TableCell>
@@ -108,10 +108,10 @@ const TableComp = () => {
                   fontSize: '16px',
                   fontWeight: '700',
                   color: 'white',
-                  borderTopRightRadius: '4px',
+                  // borderTopRightRadius: '4px',
                 }}
                 align='center'
-                className='border-r-[1px] border-gray-400'
+                className='border-r-[1px] border-gray-400 rounded-tr-[30px]'
               >
                 Modify Date
               </TableCell>

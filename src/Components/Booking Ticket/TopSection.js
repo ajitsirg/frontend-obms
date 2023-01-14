@@ -16,24 +16,26 @@ const TopSection = ({ ticketFormik }) => {
           Select Date
         </label>
         <Calendar
-          className='rounded-lg p-3 w-64'
-          id='date'
+          className='rounded-lg p-3 w-[370px] text-[20px] text-center'
+          id='picker'
           name='date'
+          dateFormat='dd/mm/yy'
           onChange={ticketFormik.handleChange}
           value={ticketFormik.values.date}
           minDate={new Date()}
+          placeholder='DD/MM/YYYY'
         />
       </div>
       {/* ------ select side -------- */}
       <div className='w-full flex flex-col lg:flex-row justify-between items-start gap-[1.5rem]'>
         {/* -------- visitor type ------- */}
         <div className=' '>
-          <h1 className='text-[24px] font-[500] '>Visitor Type :</h1>
+          <h1 className='text-[24px] font-[500]'>Visitor Type :</h1>
           <VisitorType ticketFormik={ticketFormik} />
         </div>
         {/* -------- no. of tourists ------- */}
         <div>
-          <h1 className='text-[24px] font-[500]'>No. Of Tourists :</h1>
+          <h1 className='text-[24px] font-[500] mb-6'>No. Of Tourists :</h1>
           <NoOfSeats ticketFormik={ticketFormik} />
         </div>
         {/* -------- paid amount ------- */}

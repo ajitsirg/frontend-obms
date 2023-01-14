@@ -36,10 +36,10 @@ function App() {
     },
     onSubmit: async (values) => {
       let totalAmount =
-        values.indianCitizenPaidAmount +
-        values.foreignCitizenPaidAmount +
-        values.indianStudentPaidAmount +
-        values.foreignStudentPaidAmount;
+        values.indianCitizenNo * 50 +
+        values.foreignCitizenNo * 200 +
+        values.indianStudentNo * 20 +
+        values.foreignStudentNo * 100;
       if (values.date === '') {
         toast.error('Please select a date!');
       } else if (
@@ -64,10 +64,10 @@ function App() {
       toast.error('Please accept our terms!');
     } else {
       const ticketAmount =
-        ticketFormik.values.indianCitizenPaidAmount +
-        ticketFormik.values.foreignCitizenPaidAmount +
-        ticketFormik.values.indianStudentPaidAmount +
-        ticketFormik.values.foreignStudentPaidAmount;
+        ticketFormik.values.indianCitizenNo * 50 +
+        ticketFormik.values.foreignCitizenNo * 200 +
+        ticketFormik.values.indianStudentNo * 20 +
+        ticketFormik.values.foreignStudentNo * 100;
       let gst = ticketAmount - (ticketAmount * 18) / 100;
       let totalVisitors =
         (ticketFormik.values.indianCitizen &&

@@ -5,7 +5,7 @@ const options = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 const NoOfSeats = ({ ticketFormik }) => {
   return (
-    <div className='flex flex-col gap-[20px] mt-[40px]'>
+    <div className='flex flex-col space-y-[35px] mt-[40px]'>
       {/* --------- 50 per persons -------- */}
       <div className='flex items-center gap-[20px]'>
         <input
@@ -19,7 +19,7 @@ const NoOfSeats = ({ ticketFormik }) => {
           defaultValue='1'
           disabled={ticketFormik.values.indianCitizen ? false : true}
         />
-        <span className='text-[#30303099]'>Rs. 50 per person</span>
+        <span className='text-[#00000080] text-[15px]'>Rs. 50 per person</span>
       </div>
       {/* --------- 200 per person -------- */}
       <div className='flex items-center gap-[20px]'>
@@ -35,7 +35,7 @@ const NoOfSeats = ({ ticketFormik }) => {
           disabled={ticketFormik.values.foreignCitizen ? false : true}
         />
 
-        <span className='text-[#30303099]'>Rs. 200 per person</span>
+        <span className='text-[#00000080] text-[15px]'>Rs. 200 per person</span>
       </div>
       {/* --------- 20 per person -------- */}
       <div className='flex items-center gap-[20px]'>
@@ -51,7 +51,7 @@ const NoOfSeats = ({ ticketFormik }) => {
           disabled={ticketFormik.values.indianStudent ? false : true}
         />
 
-        <span className='text-[#30303099]'>Rs. 20 per person</span>
+        <span className='text-[#00000080] text-[15px]'>Rs. 20 per person</span>
       </div>
       {/* --------- 100 per person -------- */}
       <div className='flex items-center gap-[20px]'>
@@ -67,7 +67,7 @@ const NoOfSeats = ({ ticketFormik }) => {
           disabled={ticketFormik.values.foreignStudent ? false : true}
         />
 
-        <span className='text-[#30303099]'>Rs. 100 per person</span>
+        <span className='text-[#00000080] text-[15px]'>Rs. 100 per person</span>
       </div>
     </div>
   );

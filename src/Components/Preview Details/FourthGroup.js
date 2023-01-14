@@ -20,6 +20,7 @@ const SecondGroup = () => {
           placeholder='Pawan Kumar'
           className='focus:outline-none h-12 p-3 rounded overflow-hidden border border-gray-400/70 shadow-md w-96'
           type='text'
+          disabled
         />
       </div>
       <div>
@@ -30,6 +31,7 @@ const SecondGroup = () => {
           placeholder='+91 98XXXXXXXX'
           className='focus:outline-none h-12 p-3 rounded overflow-hidden border border-gray-400/70 shadow-md w-96'
           type='text'
+          disabled
         />
       </div>
       <div>
@@ -40,6 +42,7 @@ const SecondGroup = () => {
           placeholder='hawa.mahal22@gmail.com'
           className='focus:outline-none h-12 p-3 rounded overflow-hidden border border-gray-400/70 shadow-md w-96'
           type='text'
+          disabled
         />
       </div>
     </div>
