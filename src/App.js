@@ -42,6 +42,12 @@ function App() {
                 values.foreignStudentNo * 100;
             if (values.date === '') {
                 toast.error('Please select a date!');
+            } else if (values.indianCitizenNO <= 0 ||
+                values.foreignCitizenNo <= 0 ||
+                values.foreignStudentNO <= 0 ||
+                values.indianStudentNO <= 0) {
+                toast.error('Please enter the correct value!');
+
             } else if (!(
                     values.indianCitizen ||
                     values.foreignCitizen ||
@@ -49,6 +55,8 @@ function App() {
                     values.indianStudent
                 )) {
                 toast.error('Please select at least one visitor type!');
+
+
             } else if (totalAmount === 0) {
                 toast.error('Amount cannot be zero!');
             } else {
