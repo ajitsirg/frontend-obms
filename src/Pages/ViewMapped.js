@@ -2,19 +2,14 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SecondNav from '../Components/Shared/SecondNav';
-import FirstGroup from '../Components/View Mapped/FirstGroup';
 import MappedSite from '../Components/View Mapped/MappedSite';
-import SecondGroup from '../Components/View Mapped/SecondGroup';
 import TableSection from '../Components/View Mapped/TableSection';
-import ThirdGroup from '../Components/View Mapped/ThirdGroup';
 import axios from 'axios';
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 
 import { FiUpload } from 'react-icons/fi';
 const baseURL = `${process.env.REACT_APP_API_URL}place`;
@@ -114,26 +109,6 @@ const ViewMapped = () => {
           <div className='flex flex-col lg:flex-row items-center gap-[10px]'>
             <div>
               <p className=' text-[#00000099] text-2xl font-semibold mb-3 capitalize'>
-                nodal department:
-              </p>
-              <FormControl className='' name='nodel_department'>
-                <InputLabel id='nodel-label'>Select Here</InputLabel>
-                <Select
-                  onChange={(e) => setnodel_department(e.target.value)}
-                  value={nodel_department}
-                  labelId='nodel-label'
-                  // inputProps={{ 'aria-label': 'Without label' }}
-                  className='w-96 shadow-md h-12 bg-white !text-gray-400'
-                  label='Select Here'
-                >
-                  {options?.map((el) => (
-                    <MenuItem value={el}>{el}</MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-            </div>
-            <div>
-              <p className=' text-[#00000099] text-2xl font-semibold mb-3 capitalize'>
                 tourist place type:
               </p>
               <FormControl className='' name='tourist_place_type'>
@@ -145,6 +120,26 @@ const ViewMapped = () => {
                   className='w-96 shadow-md h-12 bg-white !text-gray-400'
                   label='Select Here'
                   labelId='tourist-label'
+                >
+                  {options?.map((el) => (
+                    <MenuItem value={el}>{el}</MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </div>
+            <div>
+              <p className=' text-[#00000099] text-2xl font-semibold mb-3 capitalize'>
+                nodal department:
+              </p>
+              <FormControl className='' name='nodel_department'>
+                <InputLabel id='nodel-label'>Select Here</InputLabel>
+                <Select
+                  onChange={(e) => setnodel_department(e.target.value)}
+                  value={nodel_department}
+                  labelId='nodel-label'
+                  // inputProps={{ 'aria-label': 'Without label' }}
+                  className='w-96 shadow-md h-12 bg-white !text-gray-400'
+                  label='Select Here'
                 >
                   {options?.map((el) => (
                     <MenuItem value={el}>{el}</MenuItem>
@@ -242,12 +237,15 @@ const ViewMapped = () => {
               site image:
             </p>
             <div className='flex items-center gap-[10px] focus:outline-none w-72'>
-              <label className='w-full cursor-pointer' htmlFor='siteImage'>
-                <p className='text-[14px] text-[#00000080] font-[500] bg-white flex items-center justify-center gap-[6px] h-12 rounded overflow-hidden border border-gray-400/70 shadow-md '>
+              <label
+                className='relative w-full cursor-pointer'
+                htmlFor='siteImage'
+              >
+                <p className=' text-[14px] text-[#00000080] font-[500] bg-white flex items-center justify-center gap-[6px] h-12 rounded overflow-hidden border border-gray-400/70 shadow-md '>
                   <span>
                     <FiUpload />
                   </span>{' '}
-                  Upload
+                  {site_image.name ? site_image.name : 'Upload'}
                 </p>
                 <input
                   accept='image/*'
@@ -259,8 +257,9 @@ const ViewMapped = () => {
                   name='site_image'
                   id='siteImage'
                 />
-                {site_image.name}
+                {/* <span className='absolute bottom-0 my-auto'> {}</span> */}
               </label>
+
               <button
                 onClick={handleOpen}
                 className='w-[70px] flex-shrink-0  bg-[#3C5071] text-white py-2.5 rounded'
@@ -293,12 +292,15 @@ const ViewMapped = () => {
               image for ticket:
             </p>
             <div className='flex items-center gap-[10px] focus:outline-none w-72'>
-              <label className='w-full cursor-pointer' htmlFor='siteforticket'>
+              <label
+                className='relative w-full cursor-pointer'
+                htmlFor='siteforticket'
+              >
                 <p className='text-[14px] text-[#00000080] font-[500] bg-white flex items-center justify-center gap-[6px] h-12 rounded overflow-hidden border border-gray-400/70 shadow-md '>
                   <span>
                     <FiUpload />
                   </span>{' '}
-                  Upload
+                  {siteforticket.name ? siteforticket.name : 'Upload'}
                 </p>
                 <input
                   accept='image/*'
@@ -310,7 +312,7 @@ const ViewMapped = () => {
                   name='siteforticket'
                   id='siteforticket'
                 />
-                {siteforticket.name}
+                {/* <span className='absolute bottom-0 my-auto'> {}</span> */}
               </label>
               <button
                 onClick={handleOpen2}

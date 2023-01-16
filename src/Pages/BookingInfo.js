@@ -3,13 +3,39 @@ import SecondNav from '../Components/Shared/SecondNav';
 import { bannerImg } from '../Pages/home/Home2';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
-import { FormControl, MenuItem, Select } from '@mui/material';
+import { Box, Fade, FormControl, MenuItem, Modal, Select } from '@mui/material';
 import { FiUpload } from 'react-icons/fi';
+import { IoIosClose } from 'react-icons/io';
 import { getPlaceById } from '../services/getPlaceById';
 import { Calendar } from 'primereact/calendar';
+import Tooltip from '@mui/material/Tooltip';
+import moment from 'moment';
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
+const style2 = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  // width: '100%',
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 
 const API_URL = process.env.REACT_APP_API_URL;
 const BookingInfo = () => {
+  const handleClose2 = () => setOpen2(false);
   const { id } = useParams();
   const [place, setPlace] = useState({});
   React.useEffect(() => {
@@ -27,7 +53,7 @@ const BookingInfo = () => {
   const [contact_no, setcontact_no] = useState();
   const [email_id, setemail_id] = useState();
   const [booking_for, setbooking_for] = useState();
-  const [visitor_form_type, setvisitor_form_type] = useState();
+  const [visitor_form_type, setvisitor_form_type] = useState('');
   const [role, setrole] = useState();
   const [help_desk_no, sethelp_desk_no] = useState();
   const [winter_session_start_time, setwinter_session_start_time] = useState();
@@ -35,7 +61,7 @@ const BookingInfo = () => {
   const [summer_session_start_time, setsummer_session_start_time] = useState();
   const [summer_session_end_time, setsummer_session_end_time] = useState();
   const [range, setRange] = useState(false);
-  const [holiday_session, setholiday_session] = useState(null);
+  const [holiday_session, setholiday_session] = useState([]);
 
   const [dateInputsnum, setDateInputNums] = useState([1]);
 
@@ -47,14 +73,12 @@ const BookingInfo = () => {
     }
   }, [sso_id]);
 
-  console.log(name, contact_no, email_id);
-
   const options = ['Taj', 'Hawa', 'jm', 'pm', 'lorem'];
   const optionsFor = ['Hawa Mahal'];
+  const optionsFormType = ['Form 1', 'Form 2'];
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     const data = new FormData();
-    console.log(visitor_form_type, 'files');
     data.append('sso_id', sso_id);
     data.append('name', name);
     data.append('contact_no', contact_no);
@@ -81,6 +105,14 @@ const BookingInfo = () => {
         console.log(error);
       });
   };
+
+  const [open2, setOpen2] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
+  const handleOpen2 = () => setOpen2(true);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  console.log('holiday', holiday_session);
 
   return (
     <div className='min-h-screen bg-[#F0EBEB]'>
@@ -192,7 +224,7 @@ const BookingInfo = () => {
                   </p> */}
                   <input
                     placeholder='26.9239° N, 75.8267° E'
-                    className='focus:outline-none p-3 h-12 rounded overflow-hidden border border-gray-400/70 shadow-md w-96'
+                    className='focus:outline-none p-3 h-12 rounded overflow-hidden border border-gray-400/70 shadow-md w-96 bg-white'
                     type='text'
                     value={
                       place?.place_coordinate_latitude &&
@@ -212,8 +244,8 @@ const BookingInfo = () => {
                     Address:
                   </p>
                   <input
-                    placeholder='Type Here'
-                    className='focus:outline-none p-3 h-12 rounded overflow-hidden border border-gray-400/70 shadow-md w-96'
+                    // placeholder='Type Here'
+                    className='focus:outline-none p-3 h-12 rounded overflow-hidden border border-gray-400/70 shadow-md w-96 bg-white'
                     type='text'
                     disabled
                     value={place?.address}
@@ -226,10 +258,7 @@ const BookingInfo = () => {
                     site image:
                   </p>
                   <div className='flex items-center gap-[24px] focus:outline-none w-72'>
-                    <label
-                      className='w-full cursor-pointer'
-                      htmlFor='siteImage'
-                    >
+                    <label className='w-full ' htmlFor='siteImage'>
                       <p className='text-[14px] text-[#00000080] font-[500] bg-white flex items-center justify-center gap-[6px] h-12 rounded overflow-hidden border border-gray-400/70 shadow-md '>
                         <span>
                           <FiUpload />
@@ -253,10 +282,7 @@ const BookingInfo = () => {
                     image for ticket:
                   </p>
                   <div className='flex items-center gap-[24px] focus:outline-none  w-72'>
-                    <label
-                      className='w-full cursor-pointer'
-                      htmlFor='siteImage'
-                    >
+                    <label className='w-full' htmlFor='siteImage'>
                       <p className='text-[14px] text-[#00000080] font-[500] bg-white flex items-center justify-center gap-[6px] h-12 rounded overflow-hidden border border-gray-400/70 shadow-md '>
                         <span>
                           <FiUpload />
@@ -305,9 +331,10 @@ const BookingInfo = () => {
                     onChange={(e) => setname(e.target.value)}
                     name='name'
                     value={name}
-                    placeholder='Type Here'
-                    className='focus:outline-none h-12 rounded overflow-hidden border p-2 border-gray-400/70 shadow-md w-96'
+                    // placeholder='Type Here'
+                    className='focus:outline-none h-12 rounded overflow-hidden border p-2 border-gray-400/70 shadow-md w-96 bg-white'
                     type='text'
+                    disabled
                   />
                 </div>
 
@@ -320,9 +347,10 @@ const BookingInfo = () => {
                     onChange={(e) => setcontact_no(e.target.value)}
                     name='contact_no'
                     value={contact_no}
-                    placeholder='Type Here'
-                    className='focus:outline-none h-12 rounded overflow-hidden border p-2 border-gray-400/70 shadow-md w-96'
+                    // placeholder='Type Here'
+                    className='focus:outline-none h-12 rounded overflow-hidden border p-2 border-gray-400/70 shadow-md w-96 bg-white'
                     type='tel'
+                    disabled
                   />
                 </div>
 
@@ -335,9 +363,10 @@ const BookingInfo = () => {
                     onChange={(e) => setemail_id(e.target.value)}
                     name='email'
                     value={email_id}
-                    placeholder='Type Here'
-                    className='focus:outline-none h-12 rounded overflow-hidden border p-2 border-gray-400/70 shadow-md w-96'
+                    // placeholder='Type Here'
+                    className='focus:outline-none h-12 rounded overflow-hidden border p-2 border-gray-400/70 shadow-md w-96 bg-white'
                     type='email'
+                    disabled
                   />
                 </div>
               </div>
@@ -382,13 +411,37 @@ const BookingInfo = () => {
                         value={visitor_form_type}
                         displayEmpty
                         inputProps={{ 'aria-label': 'Without label' }}
-                        className='w-96 shadow-md  h-12 bg-white !text-gray-400'
+                        className='w-72 shadow-md  h-12 bg-white !text-gray-400'
                       >
-                        {optionsFor?.map((el) => (
+                        {optionsFormType?.map((el) => (
                           <MenuItem value={el}>{el}</MenuItem>
                         ))}
                       </Select>
                     </label>
+                    <button
+                      onClick={handleOpen2}
+                      className='bg-[#3C5071] h-11 px-5 text-white rounded-[6px] shadow-[0_4px_4px_rgba(0,0,0,0.3)] uppercase font-[600]'
+                    >
+                      View
+                    </button>
+                    <Modal
+                      aria-labelledby='transition-modal-title'
+                      aria-describedby='transition-modal-description'
+                      open={open2}
+                      onClose={handleClose2}
+                      closeAfterTransition
+                    >
+                      <Fade in={open2}>
+                        <Box sx={style}>
+                          {visitor_form_type !== '' &&
+                          visitor_form_type === 'Form 1' ? (
+                            <>Form 1</>
+                          ) : (
+                            <>Form 2</>
+                          )}
+                        </Box>
+                      </Fade>
+                    </Modal>
                   </div>
                 </div>
                 <div className='flex items-end justify-start gap-8 w-96 flex-row-reverse'>
@@ -403,9 +456,6 @@ const BookingInfo = () => {
                       // type='number'
                     />
                   </div>
-                  {/* <button className='bg-[#3C5071] h-11 px-5 text-white rounded-[6px] shadow-[0_4px_4px_rgba(0,0,0,0.3)] uppercase font-[600]'>
-                    View
-                  </button> */}
                 </div>
                 <div>
                   <p className='text-[#00000099] text-2xl font-semibold mb-3 capitalize'>
@@ -426,7 +476,7 @@ const BookingInfo = () => {
                 </div>
               </div>
               {/* ------- timing section -------- */}
-              <div>
+              <div className='border-t w-full border-[#00000033] pt-4'>
                 <h1 className='text-[24px] text-[#626262] font-[600]'>
                   Timing:
                 </h1>
@@ -523,43 +573,129 @@ const BookingInfo = () => {
                         </div> */}
                         <div className='grid grid-cols-3 gap-x-2'>
                           <div className='w-full flex items-start justify-center flex-col col-span-1'>
-                            {dateInputsnum?.map(() => {
+                            {dateInputsnum?.map((val, index) => {
                               return (
-                                <Calendar
-                                  className='rounded-lg w-[150px] h-[54px]'
-                                  id='picker2'
-                                  name='date'
-                                  onChange={(e) => setholiday_session(e.value)}
-                                  value={holiday_session}
-                                  minDate={new Date()}
-                                  selectionMode={range ? 'range' : undefined}
-                                  placeholder='DD/MM/YYYY'
-                                />
+                                <div className='flex items-center relative'>
+                                  {' '}
+                                  <Calendar
+                                    className='rounded-lg w-[150px] h-[54px]'
+                                    id='picker2'
+                                    name='date'
+                                    onChange={(e) => {
+                                      setholiday_session(e.value);
+                                    }}
+                                    value={holiday_session}
+                                    minDate={new Date()}
+                                    selectionMode={range ? 'range' : 'multiple'}
+                                    placeholder='DD/MM/YYYY'
+                                  />
+                                  {/* {!(dateInputsnum.length === 1) && (
+                                    <span
+                                      className={`absolute right-1 text-xl  hover:bg-gray-200 cursor-pointer`}
+                                      onClick={() => {
+                                        if (!(dateInputsnum.length === 1)) {
+                                          let arr = [...holiday_session];
+                                          arr.splice(index, 0);
+                                          setholiday_session(arr);
+                                          let arr2 = [...dateInputsnum];
+                                          arr2.pop(1);
+                                          setDateInputNums(arr2);
+                                        }
+                                      }}
+                                      disabled={dateInputsnum.length === 1}
+                                    >
+                                      <IoIosClose />
+                                    </span>
+                                  )} */}
+                                </div>
                               );
                             })}
-
+                            <Modal
+                              aria-labelledby='transition-modal-title'
+                              aria-describedby='transition-modal-description'
+                              open={open}
+                              onClose={handleClose}
+                              closeAfterTransition
+                            >
+                              <Fade in={open}>
+                                <Box sx={style2}>
+                                  {/* -------- right side table -------- */}
+                                  <div className='w-[90vw] lg:w-[529px] mx-auto lg:mx-0 bg-white rounded-b-lg overflow-hidden'>
+                                    <h1 className='font-semibold text-[20px] text-white text-start truncate bg-[#3C5071] py-2.5 rounded-md px-2'>
+                                      Holidays Date
+                                    </h1>
+                                    {/* ------ data row ------ */}
+                                    {!range ? (
+                                      <div className='grid grid-cols-2  gap-[1px] border-b-2'>
+                                        {holiday_session?.map((val) => {
+                                          return (
+                                            <h1 className='font-semibold text-[16px] text-[#000000B2] text-center truncate py-2.5 border-r-2'>
+                                              {moment(val).format('DD/MM/YYYY')}
+                                            </h1>
+                                          );
+                                        })}
+                                      </div>
+                                    ) : (
+                                      <div className='grid grid-cols-3  gap-[1px] border-b-2'>
+                                        <h1 className='font-semibold text-[16px] text-[#000000B2] text-center truncate py-2.5 border-r-2'>
+                                          {moment(holiday_session[0]).format(
+                                            'DD/MM/YYYY'
+                                          )}{' '}
+                                        </h1>
+                                        <span className='flex items-center justify-center text-center'>
+                                          TO
+                                        </span>
+                                        <h1 className='font-semibold text-[16px] text-[#000000B2] text-center truncate py-2.5 border-r-2'>
+                                          {moment(holiday_session[1]).format(
+                                            'DD/MM/YYYY'
+                                          )}
+                                        </h1>
+                                      </div>
+                                    )}
+                                    {/* ------ data row ------ */}
+                                  </div>
+                                </Box>
+                              </Fade>
+                            </Modal>
                             <div
                               className='text-black underline text-center ml-2 font-semibold cursor-pointer'
                               onClick={() => {
-                                setRange(true);
-                                setDateInputNums([0]);
+                                if (range) {
+                                  setRange(false);
+                                  setDateInputNums([0]);
+                                  setholiday_session([]);
+                                } else {
+                                  setRange(true);
+                                  setDateInputNums([0]);
+                                  setholiday_session([]);
+                                }
                               }}
                             >
-                              DATE PERIOD
+                              {range ? 'SELECT DATE' : 'DATE PERIOD'}
                             </div>
                           </div>
-
-                          <button
-                            disbaled={range}
-                            onClick={() => {
-                              let arr = [...dateInputsnum];
-                              arr.push(Math.random());
-                              setDateInputNums(arr);
-                            }}
-                            className='bg-[#3C5071] w-[53px] h-[54px] text-white rounded-[6px] shadow-[0_4px_4px_rgba(0,0,0,0.3)] uppercase font-[600]'
-                          >
-                            Add
-                          </button>
+                          <div className='flex space-x-1'>
+                            <button
+                              disbaled={range ? true : false}
+                              // onClick={() => {
+                              //   if (!range) {
+                              //     let arr = [...dateInputsnum];
+                              //     arr.push(Math.random());
+                              //     setDateInputNums(arr);
+                              //   }
+                              // }}
+                              className='bg-[#3C5071] w-[60px] h-[54px] text-white rounded-[6px] shadow-[0_4px_4px_rgba(0,0,0,0.3)] uppercase font-[600]'
+                            >
+                              Add
+                            </button>
+                            <button
+                              disbaled={range ? true : false}
+                              onClick={handleOpen}
+                              className='bg-[#3C5071] w-[60px] h-[54px] text-white rounded-[6px] shadow-[0_4px_4px_rgba(0,0,0,0.3)] uppercase font-[600]'
+                            >
+                              View
+                            </button>
+                          </div>
                           <div className='flex gap-4 xl:-ml-4  mb-0.5'>
                             <button className='bg-[#3C5071] w-[145px] h-[54px] px-5 text-white rounded-[6px] shadow-[0_4px_4px_rgba(0,0,0,0.3)] uppercase font-[600]'>
                               Back
