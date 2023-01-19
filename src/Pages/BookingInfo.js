@@ -434,7 +434,7 @@ const BookingInfo = () => {
                       <Fade in={open2}>
                         <Box sx={style}>
                           {visitor_form_type !== '' &&
-                          visitor_form_type === 'Form 1' ? (
+                            visitor_form_type === 'Form 1' ? (
                             <>Form 1</>
                           ) : (
                             <>Form 2</>
@@ -453,7 +453,7 @@ const BookingInfo = () => {
                       onChange={(e) => sethelp_desk_no(e.target.value)}
                       placeholder='123-456-7890'
                       className='focus:outline-none h-12 rounded p-3 overflow-hidden border border-gray-400/70 shadow-md w-full'
-                      // type='number'
+                    // type='number'
                     />
                   </div>
                 </div>
@@ -483,79 +483,80 @@ const BookingInfo = () => {
                 {/* ------ PARENT DIV ------- */}
                 <div className='flex items-end flex-wrap gap-8'>
                   {/* -------- left side inputs ------- */}
-                  <div className='flex flex-col lg:flex-row items-center gap-8'>
-                    {/* ----- Winter Session ------- */}
-                    <div className=' '>
-                      <h3 className='text-[20px] font-[600]'>Winter Session</h3>
-                      <div className='flex items-center w-80 gap-0.5 '>
-                        {/* ------- start time ------ */}
-                        <div className='w-full'>
-                          <p className='text-[14px]'>Start Time</p>
-                          {/* <Calendar
+                  <div className='flex items-center flex-wrap '>
+                    <div className='flex flex-col lg:flex-row items-center gap-8'>
+                      {/* ----- Winter Session ------- */}
+                      <div className='winter-div'>
+                        <h3 className='text-[20px] font-[600]'>Winter Session</h3>
+                        <div className='flex items-center w-80 gap-0.5 '>
+                          {/* ------- start time ------ */}
+                          <div className='w-full'>
+                            <p className='text-[14px]'>Start Time</p>
+                            {/* <Calendar
                             showTime
                             showSeconds
                             hourFormat='24'
                              value={date2}
                              onChange={(e) => setDate2(e.value)}
                           ></Calendar> */}
-                          <input
-                            onChange={(e) =>
-                              setwinter_session_start_time(e.target.value)
-                            }
-                            className='w-full h-12 p-2 rounded border border-gray-400/70 shadow-md'
-                            type='time'
-                          />
-                        </div>
-                        {/* ------- end time ------ */}
-                        <div className='w-full'>
-                          <p className='text-[14px]'>End Time</p>
-                          <input
-                            onChange={(e) =>
-                              setwinter_session_end_time(e.target.value)
-                            }
-                            className='w-full h-12 p-2 rounded border border-gray-400/70 shadow-md'
-                            type='time'
-                          />
+                            <input
+                              onChange={(e) =>
+                                setwinter_session_start_time(e.target.value)
+                              }
+                              className='w-full h-12 p-2 rounded border border-gray-400/70 shadow-md'
+                              type='time'
+                            />
+                          </div>
+                          {/* ------- end time ------ */}
+                          <div className='w-full'>
+                            <p className='text-[14px]'>End Time</p>
+                            <input
+                              onChange={(e) =>
+                                setwinter_session_end_time(e.target.value)
+                              }
+                              className='w-full h-12 p-2 rounded border border-gray-400/70 shadow-md'
+                              type='time'
+                            />
+                          </div>
                         </div>
                       </div>
-                    </div>
 
-                    {/* ----- Summer Session ------- */}
-                    <div className=''>
-                      <h3 className='text-[20px] font-[600]'>Summer Session</h3>
-                      <div className='flex items-center w-80 gap-0.5'>
-                        {/* ------- start time ------ */}
-                        <div className='w-full'>
-                          <p className='text-[14px]'>Start Time</p>
-                          <input
-                            onChange={(e) =>
-                              setsummer_session_start_time(e.target.value)
-                            }
-                            className='w-full h-12 p-2 rounded border border-gray-400/70 shadow-md'
-                            type='time'
-                          />
-                        </div>
-                        {/* ------- end time ------ */}
-                        <div className='w-full'>
-                          <p className='text-[14px]'>End Time</p>
-                          <input
-                            onChange={(e) =>
-                              setsummer_session_end_time(e.target.value)
-                            }
-                            className='w-full h-12 p-2 rounded border border-gray-400/70 shadow-md'
-                            type='time'
-                          />
+                      {/* ----- Summer Session ------- */}
+                      <div className='winter-div'>
+                        <h3 className='text-[20px] font-[600]'>Summer Session</h3>
+                        <div className='flex items-center w-80 gap-0.5'>
+                          {/* ------- start time ------ */}
+                          <div className='w-full'>
+                            <p className='text-[14px]'>Start Time</p>
+                            <input
+                              onChange={(e) =>
+                                setsummer_session_start_time(e.target.value)
+                              }
+                              className='w-full h-12 p-2 rounded border border-gray-400/70 shadow-md'
+                              type='time'
+                            />
+                          </div>
+                          {/* ------- end time ------ */}
+                          <div className='w-full'>
+                            <p className='text-[14px]'>End Time</p>
+                            <input
+                              onChange={(e) =>
+                                setsummer_session_end_time(e.target.value)
+                              }
+                              className='w-full h-12 p-2 rounded border border-gray-400/70 shadow-md'
+                              type='time'
+                            />
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    {/* ----- Holiday Session ------- */}
-                    <div className=''>
-                      <h3 className='text-[20px] font-[600] pt-5 pb-3'>
-                        Holidays Date
-                      </h3>
-                      <div className='flex items-center w-96 gap-0.5 '>
-                        {/* ------- start time ------ */}
-                        {/* <div className='w-full'>
+                      {/* ----- Holiday Session ------- */}
+                      <div className=''>
+                        <h3 className='text-[20px] font-[600] pt-5 pb-3'>
+                          Holidays Date
+                        </h3>
+                        <div className='flex items-center  gap-0.5 '>
+                          {/* ------- start time ------ */}
+                          {/* <div className='w-full'>
                           <p className='text-[14px]'> Start Date</p>
                           <input
                             onChange={(e) => setholiday_session(e.target.value)}
@@ -571,25 +572,25 @@ const BookingInfo = () => {
                             type='date'
                           />
                         </div> */}
-                        <div className='grid grid-cols-3 gap-x-2'>
-                          <div className='w-full flex items-start justify-center flex-col col-span-1'>
-                            {dateInputsnum?.map((val, index) => {
-                              return (
-                                <div className='flex items-center relative'>
-                                  {' '}
-                                  <Calendar
-                                    className='rounded-lg w-[150px] h-[54px]'
-                                    id='picker2'
-                                    name='date'
-                                    onChange={(e) => {
-                                      setholiday_session(e.value);
-                                    }}
-                                    value={holiday_session}
-                                    minDate={new Date()}
-                                    selectionMode={range ? 'range' : 'multiple'}
-                                    placeholder='DD/MM/YYYY'
-                                  />
-                                  {/* {!(dateInputsnum.length === 1) && (
+                          <div className='grid grid-cols-3 gap-x-2'>
+                            <div className='w-full flex items-start justify-center flex-col col-span-1'>
+                              {dateInputsnum?.map((val, index) => {
+                                return (
+                                  <div className='flex items-center relative'>
+                                    {' '}
+                                    <Calendar
+                                      className='rounded-lg w-[150px] h-[54px]'
+                                      id='picker2'
+                                      name='date'
+                                      onChange={(e) => {
+                                        setholiday_session(e.value);
+                                      }}
+                                      value={holiday_session}
+                                      minDate={new Date()}
+                                      selectionMode={range ? 'range' : 'multiple'}
+                                      placeholder='DD/MM/YYYY'
+                                    />
+                                    {/* {!(dateInputsnum.length === 1) && (
                                     <span
                                       className={`absolute right-1 text-xl  hover:bg-gray-200 cursor-pointer`}
                                       onClick={() => {
@@ -607,114 +608,120 @@ const BookingInfo = () => {
                                       <IoIosClose />
                                     </span>
                                   )} */}
-                                </div>
-                              );
-                            })}
-                            <Modal
-                              aria-labelledby='transition-modal-title'
-                              aria-describedby='transition-modal-description'
-                              open={open}
-                              onClose={handleClose}
-                              closeAfterTransition
-                            >
-                              <Fade in={open}>
-                                <Box sx={style2}>
-                                  {/* -------- right side table -------- */}
-                                  <div className='w-[90vw] lg:w-[529px] mx-auto lg:mx-0 bg-white rounded-b-lg overflow-hidden'>
-                                    <h1 className='font-semibold text-[20px] text-white text-start truncate bg-[#3C5071] py-2.5 rounded-md px-2'>
-                                      Holidays Date
-                                    </h1>
-                                    {/* ------ data row ------ */}
-                                    {!range ? (
-                                      <div className='grid grid-cols-2  gap-[1px] border-b-2'>
-                                        {holiday_session?.map((val) => {
-                                          return (
-                                            <h1 className='font-semibold text-[16px] text-[#000000B2] text-center truncate py-2.5 border-r-2'>
-                                              {moment(val).format('DD/MM/YYYY')}
-                                            </h1>
-                                          );
-                                        })}
-                                      </div>
-                                    ) : (
-                                      <div className='grid grid-cols-3  gap-[1px] border-b-2'>
-                                        <h1 className='font-semibold text-[16px] text-[#000000B2] text-center truncate py-2.5 border-r-2'>
-                                          {moment(holiday_session[0]).format(
-                                            'DD/MM/YYYY'
-                                          )}{' '}
-                                        </h1>
-                                        <span className='flex items-center justify-center text-center'>
-                                          TO
-                                        </span>
-                                        <h1 className='font-semibold text-[16px] text-[#000000B2] text-center truncate py-2.5 border-r-2'>
-                                          {moment(holiday_session[1]).format(
-                                            'DD/MM/YYYY'
-                                          )}
-                                        </h1>
-                                      </div>
-                                    )}
-                                    {/* ------ data row ------ */}
                                   </div>
-                                </Box>
-                              </Fade>
-                            </Modal>
-                            <div
-                              className='text-black underline text-center ml-2 font-semibold cursor-pointer'
-                              onClick={() => {
-                                if (range) {
-                                  setRange(false);
-                                  setDateInputNums([0]);
-                                  setholiday_session([]);
-                                } else {
-                                  setRange(true);
-                                  setDateInputNums([0]);
-                                  setholiday_session([]);
-                                }
-                              }}
-                            >
-                              {range ? 'SELECT DATE' : 'DATE PERIOD'}
+                                );
+                              })}
+                              <Modal
+                                aria-labelledby='transition-modal-title'
+                                aria-describedby='transition-modal-description'
+                                open={open}
+                                onClose={handleClose}
+                                closeAfterTransition
+                              >
+                                <Fade in={open}>
+                                  <Box sx={style2}>
+                                    {/* -------- right side table -------- */}
+                                    <div className='w-[90vw] lg:w-[529px] mx-auto lg:mx-0 bg-white rounded-b-lg overflow-hidden'>
+                                      <h1 className='font-semibold text-[20px] text-white text-start truncate bg-[#3C5071] py-2.5 rounded-md px-2'>
+                                        Holidays Date
+                                      </h1>
+                                      {/* ------ data row ------ */}
+                                      {!range ? (
+                                        <div className='grid grid-cols-2  gap-[1px] border-b-2'>
+                                          {holiday_session?.map((val) => {
+                                            return (
+                                              <h1 className='font-semibold text-[16px] text-[#000000B2] text-center truncate py-2.5 border-r-2'>
+                                                {moment(val).format('DD/MM/YYYY')}
+                                              </h1>
+                                            );
+                                          })}
+                                        </div>
+                                      ) : (
+                                        <div className='grid grid-cols-3  gap-[1px] border-b-2'>
+                                          <h1 className='font-semibold text-[16px] text-[#000000B2] text-center truncate py-2.5 border-r-2'>
+                                            {moment(holiday_session[0]).format(
+                                              'DD/MM/YYYY'
+                                            )}{' '}
+                                          </h1>
+                                          <span className='flex items-center justify-center text-center'>
+                                            TO
+                                          </span>
+                                          <h1 className='font-semibold text-[16px] text-[#000000B2] text-center truncate py-2.5 border-r-2'>
+                                            {moment(holiday_session[1]).format(
+                                              'DD/MM/YYYY'
+                                            )}
+                                          </h1>
+                                        </div>
+                                      )}
+                                      {/* ------ data row ------ */}
+                                    </div>
+                                  </Box>
+                                </Fade>
+                              </Modal>
+                              <div
+                                className='text-black underline text-center ml-2 font-semibold cursor-pointer'
+                                onClick={() => {
+                                  if (range) {
+                                    setRange(false);
+                                    setDateInputNums([0]);
+                                    setholiday_session([]);
+                                  } else {
+                                    setRange(true);
+                                    setDateInputNums([0]);
+                                    setholiday_session([]);
+                                  }
+                                }}
+                              >
+                                {range ? 'SELECT DATE' : 'DATE PERIOD'}
+                              </div>
                             </div>
+
                           </div>
-                          <div className='flex space-x-1'>
-                            <button
-                              disbaled={range ? true : false}
-                              // onClick={() => {
-                              //   if (!range) {
-                              //     let arr = [...dateInputsnum];
-                              //     arr.push(Math.random());
-                              //     setDateInputNums(arr);
-                              //   }
-                              // }}
-                              className='bg-[#3C5071] w-[60px] h-[54px] text-white rounded-[6px] shadow-[0_4px_4px_rgba(0,0,0,0.3)] uppercase font-[600]'
-                            >
-                              Add
-                            </button>
-                            <button
-                              disbaled={range ? true : false}
-                              onClick={handleOpen}
-                              className='bg-[#3C5071] w-[60px] h-[54px] text-white rounded-[6px] shadow-[0_4px_4px_rgba(0,0,0,0.3)] uppercase font-[600]'
-                            >
-                              View
-                            </button>
-                          </div>
-                          <div className='flex gap-4 xl:-ml-4  mb-0.5'>
-                            <button className='bg-[#3C5071] w-[145px] h-[54px] px-5 text-white rounded-[6px] shadow-[0_4px_4px_rgba(0,0,0,0.3)] uppercase font-[600]'>
-                              Back
-                            </button>
-                            <button
-                              className='bg-[#3C5071] w-[145px] h-[54px] px-5 text-white rounded-[6px] shadow-[0_4px_4px_rgba(0,0,0,0.3)] uppercase font-[600]'
-                              onClick={() => navigate('/')}
-                            >
-                              Cancel
-                            </button>
-                            <button
-                              onClick={handleSubmit}
-                              className='bg-[#3C5071] w-[145px] h-[54px] px-[10px] text-white rounded-[6px] shadow-[0_4px_4px_rgba(0,0,0,0.3)] uppercase font-[600]'
-                            >
-                              Submit
-                            </button>
-                          </div>
+
+                          {/* -------- button side --------- */}
                         </div>
-                        {/* -------- button side --------- */}
+
+                      </div>
+                    </div>
+                    <div className='ml-7 flex top-parent-flex top-class'>
+                      <div className=' flex space-x-1 child-one'>
+                        <button
+                          disbaled={range ? true : false}
+                          // onClick={() => {
+                          //   if (!range) {
+                          //     let arr = [...dateInputsnum];
+                          //     arr.push(Math.random());
+                          //     setDateInputNums(arr);
+                          //   }
+                          // }}
+                          className='bg-[#3C5071] w-[60px] h-[54px] text-white rounded-[6px] shadow-[0_4px_4px_rgba(0,0,0,0.3)] uppercase font-[600]'
+                        >
+                          Add
+                        </button>
+                        <button
+                          disbaled={range ? true : false}
+                          onClick={handleOpen}
+                          className='bg-[#3C5071] w-[60px] h-[54px] text-white rounded-[6px] shadow-[0_4px_4px_rgba(0,0,0,0.3)] uppercase font-[600]'
+                        >
+                          View
+                        </button>
+                      </div>
+                      <div className='flex gap-4 ml-3   mb-0.5 child-two'>
+                        <button className='bg-[#3C5071] w-[145px] h-[54px] px-5 text-white rounded-[6px] shadow-[0_4px_4px_rgba(0,0,0,0.3)] uppercase font-[600]'>
+                          Back
+                        </button>
+                        <button
+                          className='bg-[#3C5071] w-[145px] h-[54px] px-5 text-white rounded-[6px] shadow-[0_4px_4px_rgba(0,0,0,0.3)] uppercase font-[600]'
+                          onClick={() => navigate('/')}
+                        >
+                          Cancel
+                        </button>
+                        <button
+                          onClick={handleSubmit}
+                          className='bg-[#3C5071] w-[145px] h-[54px] px-[10px] text-white rounded-[6px] shadow-[0_4px_4px_rgba(0,0,0,0.3)] uppercase font-[600]'
+                        >
+                          Submit
+                        </button>
                       </div>
                     </div>
                   </div>

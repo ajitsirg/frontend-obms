@@ -6,7 +6,7 @@ import { Calendar } from 'primereact/calendar';
 
 const TopSection = ({ ticketFormik }) => {
   return (
-    <div className='flex flex-col xl:flex-row items-start justify-between gap-[70px] whitespace-nowrap'>
+    <div className='flex flex-col xl:flex-row items-start justify-between gap-[25px] whitespace-nowrap'>
       {/* -------- select date side ---------- */}
       <div className='w-full lg:w-fit flex flex-col lg:flex-row items-center gap-[35px]'>
         <label

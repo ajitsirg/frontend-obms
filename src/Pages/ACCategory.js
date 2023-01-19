@@ -406,7 +406,7 @@ const ACCategory = () => {
             </div>
 
             {/* ------- grand total -------- */}
-            <div className=' flex flex-col lg:flex-row justify-end items-center gap-[10px] mt-[24px] mr-[7rem]'>
+            <div className=' flex flex-col lg:flex-row justify-end items-center gap-[10px] mt-[24px] mr-[7rem] grand-total'>
               <h3 className='text-[20px] font-[600] text-[#626262]'>
                 Grand Total:
               </h3>
@@ -424,7 +424,7 @@ const ACCategory = () => {
               </div>
             </div>
             {/* -------- bottom buttons -------- */}
-            <div className='flex justify-end gap-[10px] mt-[208px] mr-[9.5rem]'>
+            <div className='flex justify-end gap-[10px] mt-[208px] mr-[9.5rem] bottom-buttons'>
               <ButtonMd text='Back' />
               <ButtonMd text='Cancel' onClick={() => navigate(`/`)} />
               <span onClick={() => navigate(`/preview-details/2`)}>

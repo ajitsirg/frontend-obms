@@ -4,7 +4,7 @@ import { BsFillArrowRightCircleFill } from 'react-icons/bs';
 const Cards = ({ data }) => {
   return (
     <div
-      className={`${data.bgColor} w-[257px] h-[122px] rounded-sm relative text-white`}
+      className={`${data.bgColor} w-[257px] h-[122px] rounded-sm relative text-white m-5`}
     >
       <div className='flex items-center justify-between  py-1 px-3'>
         <div className=''>

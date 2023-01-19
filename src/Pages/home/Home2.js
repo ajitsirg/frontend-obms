@@ -47,24 +47,26 @@ const Home2 = () => {
           <div className='w-80 rounded-lg overflow-hidden  mb-12 relative '>
             <input
               type='text'
-              className='px-3 pr-8 outline-none rounded-md h-10 border border-gray-200 w-full'
+              className='px-3 pr-8 outline-none rounded-md h-12 border border-gray-200 w-full'
               placeholder='Search Booking ID'
             />
-            <span className='flex items-end justify-center absolute right-0 w-10  text-xl text-gray-600 inset-y-0 border-2 border-gray-600 rounded-lg'>
-              <img src='/search.png' alt='' />
+            <span className='flex items-end justify-center absolute right-0 w-16  text-xl text-gray-600 inset-y-0 border-2 border-gray-600 rounded-lg'>
+              <img className="h-8 w-8 mt-2.5" src='/search.png' alt='' />
             </span>
           </div>
         </div>
       </div>
       <div className='max-w-5xl mx-auto  min-h-[400px]  text-center'>
-        <div className='flex items-center justify-center gap-8 mb-12'>
+        <div className='flex items-center justify-center gap-8 mb-12 home-page'>
+          {/* <div className=''> */}
           <Cards data={cards[0]} />
           <Cards data={cards[1]} />
           <Cards data={cards[2]} />
+          {/* </div> */}
         </div>
         <Link
           to='/booking-ticket'
-          className='bg-[#314668] px-16 text-[32px] text-[#FFC107] mt-10 w-4/6 mx-auto py-4 rounded-lg'
+          className='bg-[#314668] px-16 text-[25px] text-[#FFC107] mt-10 w-4/6 mx-auto py-4 rounded-lg'
         >
           Book Ticket
         </Link>

@@ -10,7 +10,9 @@ const Table2 = ({ ticketFormik }) => {
     (ticketFormik.values.foreignStudent &&
       ticketFormik.values.foreignStudentNo);
   return (
-    <table className='w-full'>
+    <div className='overflow-auto'>
+      
+    <table className='w-full '>
       <thead className='w-full'>
         <tr className='w-full text-lg text-[#2E2D2D]'>
           <th className=''>Sr. No</th>
@@ -43,6 +45,8 @@ const Table2 = ({ ticketFormik }) => {
         </tr>
       </tbody>
     </table>
+    </div>
+
   );
 };
 

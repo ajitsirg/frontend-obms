@@ -12,7 +12,7 @@ const BookingTicket = ({ ticketFormik }) => {
         className='h-80 overflow-hidden bg-cover max-w-7xl rounded-xl mx-auto bg-no-repeat  bg-center w-full bg-blend-darken '
       >
         <Navbar />
-        <h2 className='h-full flex items-center justify-center pb-24 text-white text-3xl font-bold tracking-wide'>
+        <h2 className='h-full flex items-center justify-center pb-24 text-white text-3xl font-bold tracking-wide heading-booking'>
           Hawa Mahal,{' '}
           <span className='font-semibold text-2xl'>Jaipur (Raj)</span>
         </h2>

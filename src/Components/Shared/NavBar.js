@@ -6,7 +6,7 @@ export const demoImg =
 const NavBar = () => {
   return (
     <nav className='bg-[#314668]  px-2 rounded-xl mx-auto py-8'>
-      <div className=' text-gray-100 flex items-center justify-between'>
+      <div className=' text-gray-100 flex items-center justify-between navbar-responsive'>
         <div className='w-full'>
           <img src='/logo.png' className='h-14 rounded-lg ' alt='' />
         </div>
@@ -16,7 +16,7 @@ const NavBar = () => {
           <Link to='/'>Help & Support</Link>
         </div>
         <div className='flex gap-[25px] items-center w-full justify-end'>
-          <img src='/bell.png' className='h-[34px] rounded-lg ' alt='' />
+          {/* <img src='/bell.png' className='h-[34px] rounded-lg ' alt='' /> */}
           <div className='flex items-center gap-3'>
             <div className='text-right '>
               <h2 className='text-lg font-medium text-yellow-400 tracking-wide '>

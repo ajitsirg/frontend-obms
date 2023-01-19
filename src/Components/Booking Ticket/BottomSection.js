@@ -55,7 +55,7 @@ const BottomSection = ({ ticketFormik }) => {
       </div>
       {/* ------- right side -------- */}
       <div className='flex flex-col items-end justify-between pt-20 w-full'>
-        <div className='bg-white text-xl text-[#1E1E1E80] shadow-lg  flex items-center px-4 py-2 gap-10 rounded-lg'>
+        <div className='bg-white text-xl text-[#1E1E1E80] shadow-lg  flex items-center px-4 py-2 gap-10 rounded-lg bottom-part'>
           <p className=' '>
             Total Visitors:{' '}
             <span className='text-black font-bold text-[30px]'>

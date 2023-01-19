@@ -7,7 +7,7 @@ const TimingSection = () => {
   const [range, setRange] = useState(false);
 
   return (
-    <div className='grid grid-cols-2 gap-[24px] px-[10px] lg:px-0 whitespace-nowrap justify-between'>
+    <div className='grid grid-cols-2 gap-[24px] px-[10px] lg:px-0 whitespace-nowrap justify-between overflow-auto'>
       {/* ------- left side table ------ */}
       <div className='w-[90vw] lg:w-[681px] bg-white mx-auto lg:mx-0 rounded-b-lg overflow-hidden mr-44'>
         {/* ------ heading row ------ */}
